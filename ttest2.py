@@ -5,7 +5,7 @@ hp=100
 print('первая комната, кинжал лежит на столе. В комнате 4 двери с каждой стороны')
 dej1='взять кинжал'
 while hp>0:
-    if x==0 and y==0:
+    while x==0 and y==0:
         
         dej2='пойти в другую комнату'
         dan=0
@@ -24,41 +24,46 @@ while hp>0:
             di=int(input('в какую дверь войти. введите число от 1 до 4'))
             if di==1:
                 x=1
-                dan=random.randint(1,3)
-                tre=random.randint(1,10)
-                hpe=random.randint(5,15)
-                the=random.randint(1,1)
-                tde=random.randint(2,3)
-                e=1
-                if dan>=1:
-                    dej1="сражаться"
-                    dej2='уйти'
-                    chee="проверить врагов"
+    if x==1 and y==0:
+        dan=random.randint(1,3)
+        tre=random.randint(1,10)
+        hpe=random.randint(5,15)
+        the=random.randint(1,1)
+        tde=random.randint(2,3)
+        e=1
+        while x==1 and y==0:
+            if dan>=1:
+                dej1="сражаться"
+                dej2='уйти'
+                chee="проверить врагов"
                 dej=input('введити что хотите сделать. Возможные действия:'+ dej1+', '+dej2+ ', '+ che+', '+chee)
                 if dej==chee:
-                    print(the, hpe, tde)
+                    print(the, hpe, tde)    
                 if dej==dej1:
                     while e>0:
                         while hpe>0:
                             hpe1=hpe
                             dej1='удар'
-                            dej2='блок'
+                            dej2='блок'    
                             dejec=random.randint(1,2)
                             if dejec==1:
                                 deje='враг собирается атаковать'
                             else:
                                 deje='враг собирается защищатся'
-                            dej=input('вы в бою.'+deje+ 'Возможные действия'+dej1+', '+dej2)
-                            if dej==dej1:
-                                i=1
-                                for i in range(1,tohit):
-                                    dam1=random.dandit(1,todam)
-                                    dam+=dam1
-                                    i+1
-                                hpe=hpe-dam
-                                deje=random.randit(1,2)
+                                dej=input('вы в бою.'+deje+ 'Возможные действия'+dej1+', '+dej2)
+                                if dej==dej1:
+                                    i=1
+                                    for i in range(1,tohit):
+                                        dam1=random.randit(1,todam)
+                                        dam+=dam1
+                                        i=i+1
+                                    hpe=hpe-dam
+                                    print(hpe)
                                 if dejec==1:
                                     hp=hp-tde
+                                    print(hp)
+                                
+                                    
                                 
                         
                     
