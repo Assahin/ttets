@@ -1,38 +1,37 @@
 import random
 x=0
 y=0
-hp=100
-print('первая комната, кинжал лежит на столе. В комнате 4 двери с каждой стороны')
-while hp>0:
-    if x==0 and y==0:
-        dej1='взять кинжал'
+hp=0
+print('первая комната. В комнате 4 двери с каждой стороны')
+dej1='взять компас'
+keyy=random.randint(1,5)
+keyx=random.randint(1,5)
+exy=random.randint(4,5)
+exx=random.randint(4,5)
+use=''
+while hp==0:
+    while x==0 and y==0:
         dej2='пойти в другую комнату'
-        dan=0
-        tre=1
-        che='проверить уровень опасности'
-        dej=input('введити что хотите сделать. Возможные действия:'+ dej1+', '+dej2+ ', '+ che)
-        if dej==dej1 and dej1!='':
-            eqv='кинжал. 2d4 '
-            print('вы подобрали кинжал')
+        dej=input('введити что хотите сделать. Возможные действия:'+dej1+', ' +dej2+', '+use)
+        if dej=='чит':
+            print(keyx,';',keyy,' ', exx,';', exy)
+        elif dej==dej1:
+            use='использовать компас'
             dej1=''
-            tohit=2
-            todam=4
-        elif dej== che:
-            print(dan, tre)
+        elif dej==use:
+            print('координаты:',x,';',y)
         elif dej==dej2 and dej!='':
-            di=input('в какую дверь войти. введите число от 1 до 4')
-            if di==1:
-                x=1
-                dan=random.randit(1,3)
-                tre=random.randit(1,10)
-                hpe=random.randit(10,20)
-                the=random.randit(1,2)
-                tde=random.randit(3,4)
-            elif di==2:
+            di=int(input('в какую дверь войти. Север, Юг, Восток, Запад'))
+            if di=='Север':
                 y=1
-            elif di==3:
-                x=-1
-            elif di==4:
+            elif di=='Восток':
+                x=1
+            elif di=='Юг':
                 y=-1
-        else:
-            print('некоректная команда')
+            elif di=='Запад':
+                x=-1
+    while x==1 and y==0:
+        a=random.randint(1,4)
+        print('в этой комнате ', a,' дверей, учитывая ту, из которой вы вышли.')
+        dej=input('введити что хотите сделать. Возможные действия:'+dej1+', ' +dej2+', '+use)
+   
